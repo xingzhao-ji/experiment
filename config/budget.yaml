@@ -1,0 +1,17 @@
+# Claw Engine – Budget Configuration
+# The orchestrator MUST read this file before every run.
+# If this file is missing or malformed the run MUST abort.
+
+daily_budget_usd: 2.00          # hard cap per nightly run
+monthly_budget_usd: 50.00       # hard cap across the calendar month
+
+# Per-run token limits (applied to the primary model call)
+max_input_tokens: 30000
+max_output_tokens: 8000
+
+# Fallback behaviour
+fallback_enabled: true           # try Ollama if primary exceeds budget
+fallback_model: "qwen3:32b"
+
+# Kill-switch: set to true to halt all runs immediately
+kill_switch: false

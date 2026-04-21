@@ -1,0 +1,40 @@
+# Claw Engine – Nightly Question Templates
+# The orchestrator picks one question per run, filling in the dataset placeholder.
+
+questions:
+  - id: diff_expr
+    text: >
+      Using the dataset at {dataset_path}, identify the single most
+      differentially expressed gene between the two sample groups.
+      Report the gene name, fold-change, p-value, and the test used.
+    task_type: differential_expression
+    expected_artifacts:
+      - post.md
+      - plot.png
+      - raw_results.csv
+      - reproduce.sh
+
+  - id: correlation
+    text: >
+      Using the dataset at {dataset_path}, find the strongest
+      pairwise correlation between any two numeric features.
+      Report Pearson r, p-value, and a scatter plot.
+    task_type: correlation_analysis
+    expected_artifacts:
+      - post.md
+      - plot.png
+      - raw_results.csv
+      - reproduce.sh
+
+  - id: outlier_detection
+    text: >
+      Using the dataset at {dataset_path}, identify any statistical
+      outlier samples using Mahalanobis distance or an equivalent method.
+      Report which samples are outliers, the threshold used, and a
+      visualization.
+    task_type: outlier_detection
+    expected_artifacts:
+      - post.md
+      - plot.png
+      - raw_results.csv
+      - reproduce.sh

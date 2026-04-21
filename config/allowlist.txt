@@ -1,0 +1,10 @@
+# Claw Engine – Allowed Python packages inside the sandbox
+# One package per line.  Lines starting with # are comments.
+# The sandbox Dockerfile installs ONLY these packages.
+pandas
+numpy
+scipy
+matplotlib
+seaborn
+scikit-learn
+statsmodels
