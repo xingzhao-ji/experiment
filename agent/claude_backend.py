@@ -70,7 +70,7 @@ with open(os.path.join(out_dir, "post.md"), "w") as f:
 
 # plot.png
 fig, ax = plt.subplots(figsize=(6, 4))
-ax.boxplot([control, treatment], labels=["Control", "Treatment"])
+ax.boxplot([control, treatment], tick_labels=["Control", "Treatment"])
 ax.set_ylabel("Expression level")
 ax.set_title("gene_A expression by group")
 fig.tight_layout()
