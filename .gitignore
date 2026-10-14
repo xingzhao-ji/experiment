@@ -9,3 +9,5 @@ out/.spend_log.yaml
 out/published/
 .env
 *.egg
+.env.*
+datasets/downloaded/
