@@ -19,6 +19,7 @@ import shutil
 import tempfile
 from datetime import datetime
 from pathlib import Path
+from uuid import uuid4
 
 import yaml
 
@@ -132,7 +133,7 @@ def run(
     This is the main entry point.  The orchestrator MUST read the budget
     file before doing anything else.
     """
-    run_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+    run_id = f"{datetime.now():%Y%m%d_%H%M%S}_{uuid4().hex}"
     full_log_parts: list[str] = []
 
     def log(msg: str) -> None:
@@ -212,7 +213,7 @@ def run(
 
     # ── Step 4: Run in sandbox ───────────────────────────────────────
     bundle_dir = Path("out") / f"bundle_{run_id}"
-    bundle_dir.mkdir(parents=True, exist_ok=True)
+    bundle_dir.mkdir(parents=True, exist_ok=False)
 
     if use_docker:
         from sandbox.launcher import build_sandbox, run_sandbox, cleanup_sandbox
